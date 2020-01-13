@@ -49,13 +49,13 @@
             </el-select>
           </el-form-item>
           <el-form-item label="使用技巧">
-            <el-input type="textarea" v-model="model.usageTips"></el-input>
+            <el-input type="textarea" autosize v-model="model.usageTips"></el-input>
           </el-form-item>
           <el-form-item label="对抗技巧">
-            <el-input type="textarea" v-model="model.battleTips"></el-input>
+            <el-input type="textarea" autosize v-model="model.battleTips"></el-input>
           </el-form-item>
           <el-form-item label="团战思路">
-            <el-input type="textarea" v-model="model.teamTips"></el-input>
+            <el-input type="textarea" autosize v-model="model.teamTips"></el-input>
           </el-form-item>
         </el-tab-pane>
         <el-tab-pane label="技能" name="skills">
@@ -77,10 +77,10 @@
                 </el-upload>
               </el-form-item>
               <el-form-item label="描述">
-                <el-input type="textarea" v-model="item.description"></el-input>
+                <el-input type="textarea" autosize v-model="item.description"></el-input>
               </el-form-item>
               <el-form-item label="小提示">
-                <el-input type="textarea" v-model="item.tips"></el-input>
+                <el-input type="textarea" autosize v-model="item.tips"></el-input>
               </el-form-item>
               <el-form-item>
                 <el-button type="danger" @click="model.skills.splice(i, 1)">删除</el-button>
