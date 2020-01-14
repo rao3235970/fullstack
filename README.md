@@ -11,3 +11,9 @@ Vue+Node--全栈开发
 
 ## 二、管理后台(admin)
 1.基于Element UI的后台管理基础界面搭建
+
+
+## 数据库
+
+1.使用mongodb数据库 导出集合方法
+https://blog.csdn.net/qq_41704680/article/details/103968275

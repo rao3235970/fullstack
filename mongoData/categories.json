@@ -1,0 +1,8 @@
+{"_id":{"$oid":"5e1598c37a6d472b84e4a49f"},"name":"news","__v":0}
+{"_id":{"$oid":"5e1598d77a6d472b84e4a4a0"},"name":"hero","__v":0}
+{"_id":{"$oid":"5e1598df7a6d472b84e4a4a1"},"name":"video","__v":0}
+{"_id":{"$oid":"5e1598ed7a6d472b84e4a4a2"},"parent":{"$oid":"5e1598c37a6d472b84e4a49f"},"name":"新闻","__v":0}
+{"_id":{"$oid":"5e169d83f575411e540b406b"},"parent":{"$oid":"5e1598d77a6d472b84e4a4a0"},"name":"英雄","__v":0}
+{"_id":{"$oid":"5e169d8cf575411e540b406c"},"parent":{"$oid":"5e169d83f575411e540b406b"},"name":"射手","__v":0}
+{"_id":{"$oid":"5e169f90f575411e540b406d"},"parent":{"$oid":"5e169d83f575411e540b406b"},"name":"战士","__v":0}
+{"_id":{"$oid":"5e16f4b0fb5f0829e84aeb24"},"parent":{"$oid":"5e1598c37a6d472b84e4a49f"},"name":"公告","__v":0}
