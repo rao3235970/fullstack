@@ -131,12 +131,21 @@ a {
 
 // nav
 .nav {
+  display: flex;
   .nav-item {
     border-bottom: 3px solid transparent;
     padding-bottom: 0.2rem;
-
     &.active {
-      border-bottom: 3px solid #fff;
+      color: map-get($colors, 'primary');
+      border-bottom: 3px solid map-get($colors, 'primary');
+    }
+  }
+}
+.nav-inverse {
+  .nav-item {
+    &.active {
+      color:map-get($colors, 'white');
+      border-bottom-color: map-get($colors, 'white');
     }
   }
 }
@@ -147,9 +156,82 @@ a {
   background-size: 28.8462rem;
   display: inline-block;
 
-  &.sprite-news {
+  &.news {
     width: 1.7692rem;
     height: 1.5385rem;
     background-position: 63.546% 15.517%;
+  }
+  &.history {
+    width: 1.7692rem;
+    height: 1.5385rem;
+    background-position: 90.483% 15.614%;
+  }
+  &.market {
+    width: 1.4615rem;
+    height: 1.6923rem;
+    background-position: 36.746% 0.924%;
+  }
+  &.experience {
+    width: 1.5385rem;
+    height: 1.5385rem;
+    background-position:  10.408% 15.517%;
+  }
+  &.newborn {
+    width: 1.5385rem;
+    height: 1.6154rem;
+    background-position: 89.733% 1.266%;
+  }
+  &.glory {
+    width: 1.8462rem;
+    height: 1.5385rem;
+    background-position: 36.467% 15.287%;
+  }
+  &.database {
+    width: 2.3846rem;
+    height: 1.9231rem;
+    background-position:  9.302% 0.813%;
+  }
+  &.camp {
+    width: 1.8462rem;
+    height: 1.8462rem;
+    background-position: 63.3% 0.927%;
+  }
+  &.official {
+    width: 1.8462rem;
+    height: 1.5385rem;
+    background-position: 0 96.207%;
+  }
+  &.sprite-arrow {
+    width: 0.7692rem;
+    height: 0.7692rem;
+    background-position: 38.577% 52.076%;
+  }
+  &.introduce {
+    background: url(../images/version-icon.png) no-repeat 1rem 0;
+    background-size: 1.7rem;
+    width: 3.8462rem;
+    height: 1.6923rem;
+    top: 0;
+  }
+  &.environmental {
+    background: url(../images/djhj.png) 1rem 0 no-repeat;
+    width: 5.2308rem;
+    height: 1.8462rem;
+    background-size: 3rem;
+    top: 0;
+  }
+  &.warfare {
+    background: url(../images/wxwzt.png) 1rem 0 no-repeat;
+    width: 4.9231rem;
+    height: 1.5385rem;
+    background-size: 3.5rem;
+    top: 0;
+  }
+  &.originality {
+    background: url(../images/cyhdy.png) 2rem 0 no-repeat;
+    width: 7.3846rem;
+    height: 2.6923rem;
+    background-size: 3rem;
+    top: 0;
   }
 }
