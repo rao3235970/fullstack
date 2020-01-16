@@ -29,18 +29,25 @@
 
     <m-list-card icon="menu" title="新闻资讯" :categories="newsCats">
       <template #items="{category}">
-        <div class="py-2" v-for="(news, i) in category.newList" :key="i">
-          <span>[{{news.categoryName}}]</span>
-          <span>|</span>
-          <span>{{news.title}}</span>
-          <span>{{news.date}}</span>
-        </div>
+        <router-link tag="div" :to="`/articles/${news._id}`" class="py-2 fs-lg d-flex" v-for="(news, i) in category.newsList" :key="i">
+          <span class="text-info">[{{news.categoryName}}]</span>
+          <span class="px-1">|</span>
+          <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{news.title}}</span>
+          <span class="text-grey-1 fs-sm">{{news.createdAt | date}}</span>
+        </router-link>
       </template>
     </m-list-card>
     
-    <m-card icon="card-hero" title="英雄列表">
-
-    </m-card>
+    <m-list-card icon="card-hero" title="英雄列表" :categories="heroCats">
+      <template #items="{category}">
+        <div class="d-flex flex-wrap" style="margin:0 -0.5rem;">
+          <div class="p-2 text-center" style="width:20%;" v-for="(hero, i) in category.heroList" :key="i">
+            <img :src="hero.avatar" alt="" class="w-100">
+            <div>{{hero.name}}</div>
+          </div>
+        </div>
+      </template>
+    </m-list-card>
 
     <m-card icon="video" title="精彩视频">
 
@@ -53,7 +60,13 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
 export default {
+  filters: {
+    date(val){
+      return dayjs(val).format('MM/DD')
+    }
+  },
   data() {
     return {
       swiperOption: {
@@ -67,48 +80,8 @@ export default {
         },
         loop: true
       },
-      newsCats:[
-        {
-          name: '热门',
-          newList: new Array(5).fill({}).map(() => ({
-            categoryName: '公告',
-            title: '赛季奖励领取调整说明及未领取奖励补发公告',
-            date: '01/09'
-          }))
-        },
-        {
-          name: '新闻',
-          newList: new Array(5).fill({}).map(() => ({
-            categoryName: '新闻',
-            title: '虎牙《偶像陪练团》俏皮风来袭，谭松韵与孤影上演鲁班大战',
-            date: '01/09'
-          }))
-        },
-        {
-          name: '公告',
-          newList: new Array(5).fill({}).map(() => ({
-            categoryName: '公告',
-            title: '【已修复】游戏内加载界面卡住无法进入对局异常说明',
-            date: '01/09'
-          }))
-        },
-        {
-          name: '活动',
-          newList: new Array(5).fill({}).map(() => ({
-            categoryName: '活动',
-            title: '王者新春年货节，组队消费活动赢好礼！',
-            date: '01/09'
-          }))
-        },
-        {
-          name: '赛事',
-          newList: new Array(5).fill({}).map(() => ({
-            categoryName: '赛事',
-            title: '2020年KPL春季转会期俱乐部挂牌名单公布',
-            date: '01/09'
-          }))
-        },
-      ],
+      newsCats: [],
+      heroCats: [],
       menu: [
         { title: "爆料站", className: "news" },
         { title: "故事站", className: "history" },
@@ -125,6 +98,20 @@ export default {
         { title: "创意互动营", className: "originality" }
       ]
     };
+  },
+  methods: {
+    async fetchNewsCats(){
+      const res = await this.$http.get('news/list')
+      this.newsCats = res.data
+    },
+    async fetchHeroCats(){
+      const res = await this.$http.get('heroes/list')
+      this.heroCats = res.data
+    }
+  },
+  created(){
+    this.fetchNewsCats()
+    this.fetchHeroCats()
   }
 };
 </script>

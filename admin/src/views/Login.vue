@@ -3,7 +3,7 @@
     <el-card header='请先登录' class="login-card">
       <el-form @submit.native.prevent="login">
         <el-form-item label="用户名">
-          <el-input v-model="model.username"></el-input>
+          <el-input v-model.trim="model.username"></el-input>
         </el-form-item>
         <el-form-item label="密码">
           <el-input v-model="model.password" type="password"></el-input>
